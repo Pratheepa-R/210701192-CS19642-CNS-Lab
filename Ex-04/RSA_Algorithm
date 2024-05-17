@@ -1,0 +1,29 @@
+def gcd(x,y): 
+    temp=0 
+    while 1: 
+        temp=x%y 
+        if temp==0: 
+            return y 
+        x=y 
+        y=temp 
+p=3 
+q=5 
+n=p*q 
+phi=(p-1)*(q-1) 
+e=2 
+while e<phi: 
+    if gcd(phi,e)==1: 
+        break 
+    else: 
+        e=e+1 
+m=int(input("Enter message text:")) 
+k=0 
+d=1.2 
+while int(d)-d!=0.0: 
+d=(1+k*phi)/e 
+k=k+1 
+print("Message:",m) 
+c=(m**e)%n 
+dec=(c**d)%n 
+print("Encrypted text:",c) 
+print("Decrypted text:",int(dec)) 
