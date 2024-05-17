@@ -1,0 +1,23 @@
+s=input("Enter a string:") 
+a=97 
+d1={} 
+d2={} 
+for i in range(26): 
+    d1[i]=chr(a) 
+    d2[chr(a)]=i 
+    a+=1 
+encrypted="" 
+decrypted="" 
+for i in s: 
+    if i==" ": 
+        encrypted+=" " 
+    else: 
+        encrypted+=d1[(d2[i]+3)%26] 
+for i in encrypted: 
+    if i==" ": 
+        decrypted+=" " 
+    else: 
+        decrypted+=d1[(d2[i]-3)%26] 
+print("Input string:",s) 
+print("Encrypted string:",encrypted) 
+print("Decrypted string:",decrypted)
