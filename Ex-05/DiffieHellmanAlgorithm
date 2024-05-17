@@ -1,0 +1,26 @@
+def isprime(n): 
+    for i in range(2,n): 
+        if n%i==0: 
+            return 0 
+    else: 
+        return 1 
+x=0 
+while x==0: 
+    p=int(input("Enter first prime number:")) 
+    if isprime(p)==1: 
+        x=1 
+x=0 
+while x==0: 
+    g=int(input("Enter second prime number:")) 
+    if isprime(g)==1: 
+        x=1 
+a=int(input("Enter secret private key for Alice:")) 
+b=int(input("Enter secret private key for Bob:")) 
+A=(g**a) % p 
+B=(g**b) % p 
+keywithalice=(B**a) % p 
+keywithbob=(A**b) % p 
+if keywithalice==keywithbob: 
+    print("The key is",keywithalice) 
+else: 
+    print("Some error occured") 
