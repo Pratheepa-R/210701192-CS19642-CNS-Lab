@@ -1,0 +1,39 @@
+s=input("Enter a string:") 
+k=int(input("Enter the depth:")) 
+encrypted="" 
+l=["" for i in range(k)] 
+row=0 
+x=1 
+for i in s: 
+    l[row]+=i 
+    row+=x 
+    if row==k or row==-1: 
+        x*=-1 
+        row+=2*x 
+for i in l: 
+    encrypted+=i 
+l=[[0 for i in range(len(s))] for i in range(k)] 
+x=y=up=0 
+dir=1 
+for i in range(len(s)): 
+    l[x][y]="*" 
+    y+=1 
+    x+=dir 
+    if x==-1 or x==k: 
+        dir*=-1 
+        x+=2*dir 
+index=0 
+4  
+for i in range(k): 
+    for j in range(len(s)): 
+        if l[i][j]=="*": 
+            l[i][j]=encrypted[index] 
+            index+=1 
+decrypted="" 
+for i in range(len(s)): 
+    for j in range(k): 
+        if l[j][i]!=0: 
+            decrypted+=l[j][i] 
+print("Input string:",s) 
+print("Encrypted string:",encrypted) 
+print("Decrypted string:",decrypted) 
